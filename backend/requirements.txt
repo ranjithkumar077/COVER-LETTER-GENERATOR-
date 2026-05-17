@@ -1,0 +1,12 @@
+flask
+flask-sqlalchemy
+flask-migrate
+flask-jwt-extended
+flask-cors
+flask-bcrypt
+flask-limiter
+psycopg2-binary
+python-dotenv
+openai
+reportlab
+gunicorn

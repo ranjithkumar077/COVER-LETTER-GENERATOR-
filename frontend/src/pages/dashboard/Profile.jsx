@@ -216,7 +216,7 @@ const Profile = () => {
                     placeholder="Briefly describe your background, career goals, and what makes you unique..."
                     className="input-field h-24 resize-y" 
                   ></textarea>
-                  <p className="text-xs text-textMuted mt-1">This helps the AI write more personalized letters.</p>
+                  <p className="text-xs text-textMuted mt-1">This helps write more personalized letters.</p>
                 </div>
               </div>
               <div className="pt-2">

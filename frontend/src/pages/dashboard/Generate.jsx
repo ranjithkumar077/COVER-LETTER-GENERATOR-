@@ -153,7 +153,7 @@ const Generate = () => {
         <Loader2 size={64} className="text-accent animate-spin mb-8" />
         <h2 className="text-3xl font-serif font-bold mb-4">Crafting Your Masterpiece</h2>
         <p className="text-textMuted text-lg max-w-md text-center">
-          Our AI is analyzing the job description and your profile to write an ATS-optimized cover letter...
+          Our system is analyzing the job description and your profile to write an ATS-optimized cover letter...
         </p>
       </div>
     );
@@ -362,7 +362,7 @@ const Generate = () => {
               <div>
                 <h4 className="font-bold mb-1">Ready to Generate</h4>
                 <p className="text-sm text-textMuted">
-                  Our AI will now analyze the job description and your background to draft a customized, ATS-optimized cover letter. This usually takes about 10-15 seconds.
+                  Our system will now analyze the job description and your background to draft a customized, ATS-optimized cover letter. This usually takes about 10-15 seconds.
                 </p>
               </div>
             </div>

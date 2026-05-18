@@ -132,12 +132,12 @@ const Landing = () => {
       {/* Hero Section */}
       <main className="container mx-auto px-10 pt-32 mt-10 relative z-10 pb-20 flex flex-col lg:flex-row items-center justify-between gap-12">
         <div className="max-w-2xl lg:max-w-xl">
-          <span className="text-xs font-bold tracking-widest text-[#7F5DF4] uppercase">AI-POWERED CAREER TOOL</span>
+          <span className="text-xs font-bold tracking-widest text-[#7F5DF4] uppercase">CAREER TOOL</span>
           <h1 className="text-5xl md:text-6xl font-bold mt-4 mb-4 font-sans leading-tight text-[#1A1F3A]">
             Land Your<br />Dream Job
           </h1>
           <p className="text-lg text-gray-600 mb-6 leading-relaxed max-w-md">
-            Craft professional, AI-powered cover letters tailored to bypass Applicant Tracking Systems and impress hiring managers.
+            Craft professional cover letters tailored to bypass Applicant Tracking Systems and impress hiring managers.
           </p>
           <Link to="/signup" className="inline-flex items-center bg-[#7F5DF4] text-white px-8 py-3.5 rounded-full font-bold hover:bg-[#6A4CE0] hover:shadow-lg transition-all group shadow-xl shadow-[#7F5DF4]/20">
             GET STARTED
@@ -181,7 +181,7 @@ const Landing = () => {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
                 <div className="lg:col-span-2">
                   <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                    The Cover Letter Generator is an intelligent tool designed to help professionals and students craft highly tailored cover letters. By leveraging advanced AI, it analyzes your skills and the job description to generate a compelling narrative that passes ATS checks and catches the recruiter's eye.
+                    The Cover Letter Generator is an intelligent tool designed to help professionals and students craft highly tailored cover letters. It analyzes your skills and the job description to generate a compelling narrative that passes ATS checks and catches the recruiter's eye.
                   </p>
                   <p className="text-base text-gray-500 leading-relaxed">
                     Our mission is to bridge the gap between talented individuals and their dream careers by removing the stress of application writing. We provide the tools to showcase your true potential in a language that recruiters and automated systems understand.
@@ -222,8 +222,8 @@ const Landing = () => {
               <div className="w-12 h-12 bg-[#7F5DF4]/10 text-[#7F5DF4] rounded-lg flex items-center justify-center mb-6">
                 <Zap size={24} />
               </div>
-              <h3 className="font-bold text-xl mb-3 text-[#1A1F3A]">AI Generation</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">Advanced AI writes persuasive, natural-sounding professional letters tailored to you.</p>
+              <h3 className="font-bold text-xl mb-3 text-[#1A1F3A]">Smart Generation</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">Advanced automation writes persuasive, natural-sounding professional letters tailored to you.</p>
             </div>
             <div className="p-8 bg-white rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-50">
               <div className="w-12 h-12 bg-[#00B4D8]/10 text-[#00B4D8] rounded-lg flex items-center justify-center mb-6">
@@ -286,7 +286,7 @@ const Landing = () => {
               Land Your Dream Job — ATS-Ready in 60 Seconds
             </h2>
             <p className="text-lg text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Craft professional, AI-powered cover letters tailored to bypass Applicant Tracking Systems and impress hiring managers.
+              Craft professional cover letters tailored to bypass Applicant Tracking Systems and impress hiring managers.
             </p>
             <Link to="/signup" className="inline-flex items-center bg-[#7F5DF4] text-white px-10 py-4 rounded-full font-bold hover:bg-[#6A4CE0] hover:shadow-lg transition-all group shadow-xl shadow-[#7F5DF4]/30 text-lg">
               Generate My Cover Letter
@@ -345,7 +345,7 @@ const Landing = () => {
               <div className="text-lg font-bold">Cover Letter Generator</div>
             </div>
             <p className="text-gray-400 mb-6 max-w-md leading-relaxed">
-              We are passionate developers building AI tools to empower job seekers worldwide. Our mission is to make your job application journey smoother, more enjoyable, and ultimately more successful.
+              We are passionate developers building tools to empower job seekers worldwide. Our mission is to make your job application journey smoother, more enjoyable, and ultimately more successful.
             </p>
             <div className="flex flex-col space-y-2">
               <div className="text-gray-300 font-medium">Tell your friends about us</div>
@@ -362,7 +362,7 @@ const Landing = () => {
             <h3 className="font-bold text-white mb-4 uppercase text-xs tracking-wider">Product</h3>
             <ul className="space-y-3 text-gray-400">
               <li><a href="#templates" className="hover:text-white transition-colors">Cover Letter Templates</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">AI Writer</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Smart Writer</a></li>
               <li><a href="#" className="hover:text-white transition-colors">ATS Checker</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Pricing</a></li>
             </ul>

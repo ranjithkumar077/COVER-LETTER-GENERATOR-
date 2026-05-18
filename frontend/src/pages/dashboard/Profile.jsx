@@ -32,7 +32,7 @@ const Profile = () => {
         try {
           const res = await api.patch('/users/profile', { avatar_url: base64 });
           setUser(res.data);
-          toast.success('Picture saved to database successfully!');
+          toast.success('Picture changed successfully!');
         } catch (error) {
           toast.error('Failed to save picture to database');
         }
@@ -151,7 +151,7 @@ const Profile = () => {
                 <button 
                   type="button" 
                   onClick={() => document.getElementById('avatar-input').click()}
-                  className="text-xs bg-gray-800 hover:bg-gray-700 text-textMain px-3 py-1.5 rounded-md transition-colors"
+                  className="text-xs bg-gray-800 hover:bg-gray-700 text-white px-3 py-1.5 rounded-md transition-colors"
                 >
                   Change Avatar
                 </button>

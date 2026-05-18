@@ -113,14 +113,7 @@ const Landing = () => {
       <nav className="fixed top-0 left-0 right-0 flex justify-between items-center py-4 px-10 bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
         {/* Custom Logo: Document + Feather (Inspired by 4th logo in sample) */}
         <div className="flex items-center space-x-2">
-          <div className="relative flex items-center justify-center w-10 h-10">
-            <div className="w-8 h-8 bg-gradient-to-br from-[#7F5DF4] to-[#00B4D8] rounded-lg flex items-center justify-center text-white shadow-lg shadow-[#7F5DF4]/30">
-              <FileText size={16} />
-            </div>
-            <div className="absolute -right-1 -top-1 text-[#00B4D8] transform rotate-12">
-              <Feather size={14} className="fill-current" />
-            </div>
-          </div>
+          <img src="/favicon.png" alt="Logo" className="w-10 h-10 flex-shrink-0" />
           <div className="text-xl font-bold text-[#1A1F3A]">Cover Letter</div>
         </div>
         
@@ -348,14 +341,7 @@ const Landing = () => {
           <div className="md:col-span-2">
             {/* Custom Logo in Footer too */}
             <div className="flex items-center space-x-2 mb-4">
-              <div className="relative flex items-center justify-center w-8 h-8">
-                <div className="w-6 h-6 bg-gradient-to-br from-[#7F5DF4] to-[#00B4D8] rounded-md flex items-center justify-center text-white">
-                  <FileText size={12} />
-                </div>
-                <div className="absolute -right-1 -top-1 text-[#00B4D8] transform rotate-12">
-                  <Feather size={10} className="fill-current" />
-                </div>
-              </div>
+              <img src="/favicon.png" alt="Logo" className="w-8 h-8 flex-shrink-0" />
               <div className="text-lg font-bold">Cover Letter Generator</div>
             </div>
             <p className="text-gray-400 mb-6 max-w-md leading-relaxed">

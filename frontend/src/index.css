@@ -7,7 +7,7 @@
 :root {
   --color-base: #F4F5F7;
   --color-surface: #FFFFFF;
-  --color-sidebar: #1E1B4B; /* Dark Purple/Indigo for sidebar */
+  --color-sidebar: #2E1065; /* Rich Purple for sidebar */
   --color-accent: #7F5DF4; /* Purple Accent */
   --color-accent-light: #A085F7;
   --color-text-main: #1A1F3A;
@@ -17,7 +17,7 @@
 .dark {
   --color-base: #131722;
   --color-surface: #1A1F3A;
-  --color-sidebar: #1A1F3A;
+  --color-sidebar: #2E1065;
   --color-accent: #7F5DF4;
   --color-accent-light: #A085F7;
   --color-text-main: #F8F9FA;

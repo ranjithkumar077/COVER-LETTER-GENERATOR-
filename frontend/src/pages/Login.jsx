@@ -33,7 +33,10 @@ const Login = () => {
       
       <div className="card w-full max-w-md z-10 animate-fade-in-up">
         <div className="text-center mb-8">
-          <Link to="/" className="text-2xl font-serif font-bold text-accent">Cover Letter Generator</Link>
+          <Link to="/" className="text-2xl font-serif font-bold text-accent flex items-center justify-center space-x-2">
+            <img src="/favicon.png" alt="Logo" className="w-8 h-8 flex-shrink-0" />
+            <span>Cover Letter Generator</span>
+          </Link>
           <h2 className="text-3xl font-bold mt-6 mb-2">Welcome Back</h2>
           <p className="text-textMuted">Sign in to your account</p>
         </div>

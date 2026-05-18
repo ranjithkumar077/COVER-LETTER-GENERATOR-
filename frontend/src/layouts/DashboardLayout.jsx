@@ -60,7 +60,10 @@ const DashboardLayout = () => {
       {/* Sidebar */}
       <aside className="w-64 bg-[var(--color-sidebar)] border-r border-gray-800 flex flex-col text-white">
         <div className="p-6 pb-2">
-          <Link to="/" className="text-xl font-serif font-bold text-accent">Cover Letter Generator</Link>
+          <Link to="/" className="text-2xl font-serif font-bold text-white flex items-center space-x-2">
+            <img src="/favicon.png" alt="Logo" className="w-10 h-10 flex-shrink-0" />
+            <span>Cover Letter Generator</span>
+          </Link>
         </div>
 
         {/* User Profile in Sidebar */}

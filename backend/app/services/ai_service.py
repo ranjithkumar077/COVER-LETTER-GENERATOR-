@@ -27,17 +27,24 @@ STYLE PREFERENCES:
 - Tone: {data.get('tone')}
 - Length: {data.get('length')}
 - Highlight Focus: {data.get('highlight')}
+- Template Style: {data.get('template_type', 'professional')}
 
-METHODOLOGY TO FOLLOW (TealHQ Style):
-1. **Introduction**: Hook the reader. Mention the role and a standout achievement or a specific reason why you admire the company. Avoid generic openings.
-2. **Body Paragraph(s)**: Connect past experience to their needs using the STAR method (Situation, Task, Action, Result). Focus on the 'Highlight Focus' requested. Use quantifiable metrics where possible based on the provided achievements.
-3. **Why Them**: Briefly explain why this specific company excites the applicant.
-4. **Closing**: Reiterate interest, include a clear Call to Action.
-5. **ATS Optimization**: Extract and naturally incorporate exact keywords from the Job Description.
+STRUCTURE TO FOLLOW (Crucial):
+You MUST generate a full, formally structured cover letter including:
+1. HEADER: Applicant's Name and Contact info (Email, Phone, LinkedIn).
+2. DATE: Current date or a placeholder like [Date].
+3. RECIPIENT: Hiring Manager, {data.get('company_name')}.
+4. SALUTATION: Dear Hiring Manager (or similar professional greeting).
+5. OPENING PARAGRAPH: Hook the reader, state the role, and show enthusiasm.
+6. BODY PARAGRAPHS: Connect experience to job needs (STAR method).
+7. CLOSING PARAGRAPH: Call to action, reiterate interest.
+8. SIGN-OFF: Sincerely, [Applicant Name].
+
+Adapt the content style based on the 'Template Style' requested (e.g., 'creative' should be more storytelling, 'minimal' more direct).
 
 YOUR OUTPUT FORMAT:
 You MUST return ONLY a valid JSON object with exactly two keys:
-1. "cover_letter": The full text of the cover letter (string)
+1. "cover_letter": The full text of the cover letter with all structure requested above (string)
 2. "ats_score": An integer from 1 to 100 representing how well the Applicant's skills and experience match the Target Job description based on strict ATS keyword tracking algorithms. Be highly critical and realistic with this score.
 
 Do NOT include markdown formatting like ```json. Just raw JSON.
@@ -49,7 +56,7 @@ Do NOT include markdown formatting like ```json. Just raw JSON.
     if not api_key or api_key == "sk-placeholder" or api_key.startswith("your_"):
         skills_str = ', '.join(data.get('key_skills', []))
         return {
-            "cover_letter": f"Dear Hiring Manager at {data.get('company_name')},\n\nI am writing to express my strong interest in the {data.get('job_title')} position. With {data.get('years_experience')} years of experience as a {data.get('current_job_title')}, I am confident in my ability to make an immediate impact on your team.\n\nIn my previous experience, I have demonstrated success in several key areas. Notably, {data.get('achievements')}. I believe these skills align perfectly with the requirements for the {data.get('job_title')} role.\n\nMy core competencies include: {skills_str}.\n\nThank you for your time and consideration.\n\nSincerely,\n{data.get('full_name')}",
+            "cover_letter": f"{data.get('full_name')}\n{data.get('email')} | {data.get('phone')}\n\n[Date]\n\nHiring Manager\n{data.get('company_name')}\n\nDear Hiring Manager at {data.get('company_name')},\n\nI am writing to express my strong interest in the {data.get('job_title')} position. With {data.get('years_experience')} years of experience as a {data.get('current_job_title')}, I am confident in my ability to make an immediate impact on your team.\n\nIn my previous experience, I have demonstrated success in several key areas. Notably, {data.get('achievements')}. I believe these skills align perfectly with the requirements for the {data.get('job_title')} role.\n\nMy core competencies include: {skills_str}.\n\nThank you for your time and consideration.\n\nSincerely,\n{data.get('full_name')}",
             "ats_score": 75
         }
 

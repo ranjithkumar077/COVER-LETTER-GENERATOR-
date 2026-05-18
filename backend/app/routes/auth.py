@@ -17,7 +17,8 @@ def register():
         
     new_user = User(
         full_name=data['full_name'],
-        email=data['email']
+        email=data['email'],
+        phone=data.get('phone')
     )
     new_user.set_password(data['password'])
     

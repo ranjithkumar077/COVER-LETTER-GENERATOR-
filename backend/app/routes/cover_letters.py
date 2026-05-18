@@ -5,7 +5,7 @@ from flask_jwt_extended import jwt_required, get_jwt_identity
 from app import db
 from app.models.cover_letter import CoverLetter
 from app.services.ai_service import generate_cover_letter
-from app.services.pdf_service import create_pdf
+from app.services.pdf_service import create_pdf, create_docx
 
 cover_letters_bp = Blueprint('cover_letters', __name__)
 
@@ -138,6 +138,18 @@ def download_pdf(id):
         
     pdf_path = create_pdf(letter.generated_content, letter.title)
     return send_file(pdf_path, as_attachment=True, download_name=f"{letter.title or 'Cover_Letter'}.pdf")
+
+@cover_letters_bp.route('/<string:id>/docx', methods=['GET'])
+@jwt_required()
+def download_docx(id):
+    user_id = get_jwt_identity()
+    letter = CoverLetter.query.filter_by(id=id, user_id=user_id).first()
+    
+    if not letter:
+        return jsonify({'message': 'Cover letter not found'}), 404
+        
+    docx_path = create_docx(letter.generated_content, letter.title)
+    return send_file(docx_path, as_attachment=True, download_name=f"{letter.title or 'Cover_Letter'}.docx")
 
 @cover_letters_bp.route('/<string:id>/txt', methods=['GET'])
 @jwt_required()

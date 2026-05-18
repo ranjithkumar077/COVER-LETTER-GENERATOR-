@@ -32,7 +32,6 @@ const ProtectedRoute = ({ children }) => {
 };
 
 function App() {
-  console.log("App component rendering original content");
   console.log("Landing is:", Landing);
   return (
     <AuthProvider>

@@ -34,7 +34,8 @@ const Generate = () => {
     // Step 4: Preferences
     tone: 'professional',
     length: 'medium',
-    highlight: 'Skills Match'
+    highlight: 'Skills Match',
+    template_type: 'professional'
   });
 
   useEffect(() => {
@@ -319,7 +320,7 @@ const Generate = () => {
               <p className="text-textMuted text-sm">Fine-tune how your letter sounds.</p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium mb-2">Writing Tone</label>
                 <select name="tone" value={formData.tone} onChange={handleChange} className="input-field">
@@ -344,6 +345,14 @@ const Generate = () => {
                   <option value="Culture Fit">Culture Fit</option>
                   <option value="Leadership">Leadership Experience</option>
                   <option value="Technical Depth">Technical Depth</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-2">Template Style</label>
+                <select name="template_type" value={formData.template_type} onChange={handleChange} className="input-field">
+                  <option value="professional">The Professional</option>
+                  <option value="minimal">Modern Minimal</option>
+                  <option value="creative">The Creative</option>
                 </select>
               </div>
             </div>

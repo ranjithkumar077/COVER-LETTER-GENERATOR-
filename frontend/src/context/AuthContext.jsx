@@ -34,11 +34,9 @@ export const AuthProvider = ({ children }) => {
     return res.data;
   };
 
-  const register = async (fullName, email, password) => {
-    const res = await api.post('/auth/register', { full_name: fullName, email, password });
-    localStorage.setItem('access_token', res.data.access_token);
-    localStorage.setItem('refresh_token', res.data.refresh_token);
-    setUser(res.data.user);
+  const register = async (fullName, email, password, phone) => {
+    const res = await api.post('/auth/register', { full_name: fullName, email, password, phone });
+    // Do not log in immediately after signup as requested
     return res.data;
   };
 

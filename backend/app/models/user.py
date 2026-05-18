@@ -9,6 +9,7 @@ class User(db.Model):
     full_name = db.Column(db.String(120), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False, index=True)
     password_hash = db.Column(db.String(255), nullable=False)
+    phone = db.Column(db.String(20), nullable=True)
     avatar_url = db.Column(db.Text, nullable=True)
     default_tone = db.Column(db.String(50), default='professional')
     default_length = db.Column(db.String(50), default='medium')
@@ -30,6 +31,7 @@ class User(db.Model):
             'id': self.id,
             'full_name': self.full_name,
             'email': self.email,
+            'phone': self.phone,
             'avatar_url': self.avatar_url,
             'default_tone': self.default_tone,
             'default_length': self.default_length,

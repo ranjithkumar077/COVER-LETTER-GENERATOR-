@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
 import api from '../api/axios';
-import { Eye, EyeOff, Lock, Mail, User, Phone } from 'lucide-react';
+import { Eye, EyeOff, Lock, Mail, User, Phone, XCircle } from 'lucide-react';
 import './Auth.css';
 
 const Auth = ({ initialMode = 'login' }) => {
@@ -15,6 +15,7 @@ const Auth = ({ initialMode = 'login' }) => {
   // Login State
   const [loginEmail, setLoginEmail] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
+  const [loginError, setLoginError] = useState('');
 
   // Signup State
   const [fullName, setFullName] = useState('');
@@ -27,12 +28,13 @@ const Auth = ({ initialMode = 'login' }) => {
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setLoginError('');
     try {
       await login(loginEmail, loginPassword);
       toast.success('Welcome back!');
       navigate('/dashboard');
     } catch (error) {
-      toast.error(error.response?.data?.message || 'Login failed');
+      setLoginError(error.response?.data?.message || 'Login failed');
     } finally {
       setIsSubmitting(false);
     }
@@ -55,8 +57,9 @@ const Auth = ({ initialMode = 'login' }) => {
     setIsSubmitting(true);
     try {
       await register(fullName, signupEmail, signupPassword, signupPhone);
-      toast.success('Account created successfully!');
-      navigate('/dashboard');
+      toast.success('Account created successfully! Please sign in.');
+      setLoginEmail(signupEmail);
+      setIsRightPanelActive(false);
     } catch (error) {
       toast.error(error.response?.data?.message || 'Registration failed');
     } finally {
@@ -180,6 +183,13 @@ const Auth = ({ initialMode = 'login' }) => {
           <form onSubmit={handleLoginSubmit} className="w-full max-w-sm space-y-5">
             <h1 className="text-3xl font-bold text-center mb-2 font-serif text-[#1A1F3A]">Welcome Back</h1>
             <p className="text-gray-500 text-center text-sm mb-6">Sign in to your account</p>
+            
+            {loginError && (
+              <div className="bg-red-50 text-red-500 p-3 rounded-lg flex items-center space-x-3 border border-red-200 animate-bounce">
+                <XCircle size={20} className="text-red-500" />
+                <span className="text-sm font-medium">{loginError}</span>
+              </div>
+            )}
             
             <div className="relative">
               <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />

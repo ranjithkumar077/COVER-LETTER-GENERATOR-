@@ -5,19 +5,21 @@
 @tailwind utilities;
 
 :root {
-  --color-base: #F8F9FA;
+  --color-base: #F4F5F7;
   --color-surface: #FFFFFF;
-  --color-accent: #C9A84C;
-  --color-accent-light: #F0C040;
+  --color-sidebar: #1E1B4B; /* Dark Purple/Indigo for sidebar */
+  --color-accent: #7F5DF4; /* Purple Accent */
+  --color-accent-light: #A085F7;
   --color-text-main: #1A1F3A;
   --color-text-muted: #6B7280;
 }
 
 .dark {
-  --color-base: #1A1F3A;
-  --color-surface: #252B4D;
-  --color-accent: #C9A84C;
-  --color-accent-light: #F0C040;
+  --color-base: #131722;
+  --color-surface: #1A1F3A;
+  --color-sidebar: #1A1F3A;
+  --color-accent: #7F5DF4;
+  --color-accent-light: #A085F7;
   --color-text-main: #F8F9FA;
   --color-text-muted: #9CA3AF;
 }

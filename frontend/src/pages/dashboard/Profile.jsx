@@ -125,13 +125,13 @@ const Profile = () => {
             <div className="flex items-center space-x-6 mb-6 pb-6 border-b border-gray-800">
               <div className="relative">
                 <div 
-                  className="w-24 h-24 rounded-full bg-accent/10 flex items-center justify-center border-2 border-accent/30 hover:border-accent transition-colors cursor-pointer overflow-hidden"
+                  className="w-24 h-24 rounded-full bg-accent text-white flex items-center justify-center border-4 border-accent/30 hover:border-accent transition-colors cursor-pointer overflow-hidden text-4xl font-bold"
                   onClick={() => document.getElementById('avatar-input').click()}
                 >
                   {avatarUrl ? (
                     <img src={avatarUrl} alt="Avatar" className="w-full h-full object-cover" />
                   ) : (
-                    <User size={40} className="text-accent" />
+                    user?.full_name?.charAt(0).toUpperCase() || 'U'
                   )}
                 </div>
                 <div className="absolute -bottom-1 -right-1 bg-accent text-base text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full pointer-events-none">

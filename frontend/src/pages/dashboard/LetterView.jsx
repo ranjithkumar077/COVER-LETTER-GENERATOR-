@@ -43,17 +43,18 @@ const LetterView = () => {
     }
   };
 
-  const handleDownload = async () => {
+  const handleDownload = async (format = 'pdf') => {
     try {
-      const res = await api.get(`/cover-letters/${id}/pdf`, { responseType: 'blob' });
+      const res = await api.get(`/cover-letters/${id}/${format}`, { responseType: 'blob' });
       const url = window.URL.createObjectURL(new Blob([res.data]));
       const link = document.createElement('a');
       link.href = url;
-      link.setAttribute('download', `${letter.title}.pdf`);
+      link.setAttribute('download', `${letter.job_title || 'Cover_Letter'}.${format}`);
       document.body.appendChild(link);
       link.click();
+      window.URL.revokeObjectURL(url); // Clean up
     } catch (error) {
-      toast.error('Download failed');
+      toast.error(`Download failed for ${format.toUpperCase()}`);
     }
   };
 
@@ -86,8 +87,11 @@ const LetterView = () => {
               <Edit size={18} className="mr-2" /> Edit Letter
             </button>
           )}
-          <button onClick={handleDownload} className="btn-primary flex items-center bg-gray-100 text-gray-900 hover:bg-white border-none shadow-md shadow-white/10">
-            <Download size={18} className="mr-2" /> Download PDF
+          <button onClick={() => handleDownload('pdf')} className="btn-primary flex items-center bg-gray-100 text-gray-900 hover:bg-white border-none shadow-md shadow-white/10">
+            <Download size={18} className="mr-2" /> PDF
+          </button>
+          <button onClick={() => handleDownload('docx')} className="btn-primary flex items-center bg-[#7F5DF4]/10 text-[#7F5DF4] hover:bg-[#7F5DF4]/20 border-none shadow-md shadow-white/10">
+            <Download size={18} className="mr-2" /> DOCX
           </button>
         </div>
       </div>

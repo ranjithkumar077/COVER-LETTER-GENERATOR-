@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, FileText, CheckCircle, Zap, Shield, Download, X, ZoomIn, Sparkles, Mail, Twitter, MessageSquare, Feather } from 'lucide-react';
+import { ArrowRight, FileText, CheckCircle, Zap, Shield, Download, X, ZoomIn, Sparkles, Mail, MessageSquare, Feather } from 'lucide-react';
 
 const Landing = () => {
   console.log("Landing component rendering");
@@ -366,7 +366,7 @@ const Landing = () => {
               <div className="flex space-x-4 text-gray-400">
                 <a href="#" className="hover:text-white transition-colors"><Mail size={18} /></a>
                 <a href="#" className="hover:text-white transition-colors"><FileText size={18} /></a>
-                <a href="#" className="hover:text-white transition-colors"><Twitter size={18} /></a>
+                <a href="#" className="hover:text-white transition-colors"><Zap size={18} /></a>
                 <a href="#" className="hover:text-white transition-colors"><MessageSquare size={18} /></a>
               </div>
             </div>

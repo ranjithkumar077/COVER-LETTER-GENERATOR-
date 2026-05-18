@@ -58,22 +58,35 @@ const DashboardLayout = () => {
   return (
     <div className="flex h-screen bg-base overflow-hidden">
       {/* Sidebar */}
-      <aside className="w-64 bg-surface border-r border-gray-800 flex flex-col">
-        <div className="p-6">
-          <Link to="/" className="text-2xl font-serif font-bold text-accent">Cover Letter Generator</Link>
+      <aside className="w-64 bg-[var(--color-sidebar)] border-r border-gray-800 flex flex-col text-white">
+        <div className="p-6 pb-2">
+          <Link to="/" className="text-xl font-serif font-bold text-accent">Cover Letter Generator</Link>
+        </div>
+
+        {/* User Profile in Sidebar */}
+        <div className="flex flex-col items-center justify-center p-6 border-b border-gray-800/50 mb-4">
+          <div className="w-20 h-20 rounded-full bg-accent text-white flex items-center justify-center font-bold text-3xl overflow-hidden mb-3 border-4 border-accent/20">
+            {user?.avatar_url ? (
+              <img src={user.avatar_url} alt="Avatar" className="w-full h-full object-cover" />
+            ) : (
+              user?.full_name?.charAt(0).toUpperCase() || 'U'
+            )}
+          </div>
+          <div className="text-sm font-bold text-white text-center w-full truncate">{user?.full_name}</div>
+          <div className="text-xs text-gray-400 text-center w-full truncate">{user?.email}</div>
         </div>
         
-        <nav className="flex-1 px-4 mt-6 space-y-2">
+        <nav className="flex-1 pl-4 mt-2 space-y-2">
           {navItems.map((item) => {
             const isActive = location.pathname === item.path;
             return (
               <Link
                 key={item.name}
                 to={item.path}
-                className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
+                className={`flex items-center space-x-3 px-4 py-3 transition-colors ${
                   isActive 
-                    ? 'bg-accent/10 text-accent font-medium border border-accent/20' 
-                    : 'text-textMuted hover:bg-gray-800 hover:text-textMain'
+                    ? 'bg-base text-textMain font-medium rounded-l-full relative -mr-px z-10 shadow-[-5px_0_15px_rgba(0,0,0,0.1)]' 
+                    : 'text-gray-400 hover:bg-white/10 hover:text-white rounded-lg mr-4'
                 }`}
               >
                 {item.icon}
@@ -86,7 +99,7 @@ const DashboardLayout = () => {
         <div className="p-4 border-t border-gray-800">
           <button 
             onClick={handleLogout}
-            className="flex items-center space-x-3 px-4 py-3 rounded-lg text-textMuted hover:bg-red-500/10 hover:text-red-400 w-full transition-colors"
+            className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-400 hover:bg-red-500/10 hover:text-red-400 w-full transition-colors"
           >
             <LogOut size={20} />
             <span>Logout</span>
@@ -125,34 +138,15 @@ const DashboardLayout = () => {
               <span id="notif-dot" className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
             </button>
             
-            <div className="flex items-center space-x-3">
-              <Link to="/dashboard/profile" className="flex items-center space-x-3 hover:opacity-80 transition-opacity cursor-pointer">
-                <div className="text-right hidden md:block">
-                  <div className="text-sm font-bold">{user?.full_name}</div>
-                  <div className="text-xs text-textMuted">{user?.email}</div>
-                </div>
-                <div className="w-10 h-10 rounded-full bg-accent text-base flex items-center justify-center font-bold text-lg overflow-hidden">
-                  {user?.avatar_url ? (
-                    <img src={user.avatar_url} alt="Avatar" className="w-full h-full object-cover" />
-                  ) : (
-                    user?.full_name?.charAt(0).toUpperCase()
-                  )}
-                </div>
-              </Link>
-              <button 
-                onClick={handleLogout}
-                className="p-2 text-textMuted hover:text-red-400 transition-colors ml-2"
-                title="Logout"
-              >
-                <LogOut size={20} />
-              </button>
-            </div>
           </div>
         </header>
 
         {/* Page Content */}
         <main className="flex-1 overflow-y-auto p-8 relative">
-          <div className="max-w-6xl mx-auto h-full">
+          {/* Background Purple Glow matching landing page */}
+          <div className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] bg-gradient-to-br from-[#7F5DF4]/15 to-[#00B4D8]/10 rounded-full blur-3xl pointer-events-none z-0"></div>
+          
+          <div className="max-w-6xl mx-auto h-full relative z-10">
             <Outlet />
           </div>
         </main>

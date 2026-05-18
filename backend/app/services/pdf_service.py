@@ -35,3 +35,29 @@ def create_pdf(content: str, title: str) -> str:
             
     doc.build(story)
     return file_path
+
+import docx
+from docx.shared import Pt
+
+def create_docx(content: str, title: str) -> str:
+    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../tmp'))
+    os.makedirs(base_dir, exist_ok=True)
+    sanitized_title = title.replace(' ', '_')
+    file_path = os.path.join(base_dir, f"{sanitized_title}.docx")
+    
+    doc = docx.Document()
+    
+    style = doc.styles['Normal']
+    font = style.font
+    font.name = 'Arial'
+    font.size = Pt(11)
+    
+    paragraphs = content.split('\n')
+    for p in paragraphs:
+        if p.strip():
+            doc.add_paragraph(p.strip())
+        else:
+            doc.add_paragraph('')
+            
+    doc.save(file_path)
+    return file_path
